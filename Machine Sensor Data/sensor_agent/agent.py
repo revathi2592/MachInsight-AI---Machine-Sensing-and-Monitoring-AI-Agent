@@ -4,7 +4,7 @@ import os
 # Set these early so they take effect before anything uses them
 os.environ["GOOGLE_VERTEXAI_PROJECT"] = "apt-advantage-461615-m4"
 os.environ["GOOGLE_VERTEXAI_LOCATION"] = "us-central1"
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\rmani@deloitte.com\AppData\Roaming\gcloud\application_default_credentials.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\revathi\AppData\Roaming\gcloud\application_default_credentials.json"
 
 import certifi
 import pymongo
@@ -23,13 +23,13 @@ from dateutil.parser import parse as parse_date
 
 
 # Load environment variables
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\rmani@deloitte.com\AppData\Roaming\gcloud\application_default_credentials.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\revathi\AppData\Roaming\gcloud\application_default_credentials.json"
 PROJECT_ID = "apt-advantage-461615-m4" 
 PROJECT_LOCATION = "us-central1" 
 DATABASE_NAME = "Manufacturing_Sensor"
 COLLECTION_NAME = "manufacturing-sensor-hourly-snapshot"
-username = quote_plus("revathi2592")
-password = quote_plus("Rev@thi2592")
+username = quote_plus("*******")
+password = quote_plus("*******")
 CONNECTION_STRING  = f"mongodb+srv://{username}:{password}@cluster0.ihjjs0q.mongodb.net/"
 
 # Init Vertex AI
