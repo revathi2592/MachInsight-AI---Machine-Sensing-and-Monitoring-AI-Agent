@@ -12,8 +12,8 @@ PROJECT_LOCATION = "us-central1"
 vertexai.init(project=PROJECT_ID, location=PROJECT_LOCATION)
  
 # MongoDB connection
-username = quote_plus("revathi2592")
-password = quote_plus("Rev@thi2592")
+username = quote_plus("********")
+password = quote_plus("********")
 mongo_uri = f"mongodb+srv://{username}:{password}@cluster0.ihjjs0q.mongodb.net/?connectTimeoutMS=60000"
 client = MongoClient(mongo_uri)
 db = client["Manufacturing_Sensor"]
