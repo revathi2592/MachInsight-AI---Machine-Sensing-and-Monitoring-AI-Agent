@@ -149,7 +149,7 @@ from typing import Union, Dict
 
 def upload_image_to_gcs(image_bytes, filename, bucket_name):
     #client = storage.Client()
-    client = storage.Client.from_service_account_json(r"C:\Users\rmani@deloitte.com\Downloads\apt-advantage-461615-m4-b18801c3ed9e.json")
+    client = storage.Client.from_service_account_json(r"C:\Users\revathi\Downloads\cred.json")
     bucket = client.bucket(bucket_name)
     blob = bucket.blob(filename)
     blob.upload_from_string(image_bytes, content_type="image/png")
