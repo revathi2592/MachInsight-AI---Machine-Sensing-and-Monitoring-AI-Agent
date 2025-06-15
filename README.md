@@ -1,0 +1,1 @@
+# MachInsight-AI---Machine-Sensing-and-Monitoring-AI-Agent
