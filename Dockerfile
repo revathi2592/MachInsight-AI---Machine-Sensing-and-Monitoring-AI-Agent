@@ -10,7 +10,7 @@ COPY requirements.txt .
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt && \
     pip install google-adk
-RUN which adk && adk --version
+#RUN which adk && adk --version
 
 COPY . .
 
@@ -24,7 +24,8 @@ EXPOSE 8080
 #CMD ["adk", "web", "--host", "0.0.0.0", "--port", "8080"]
 #CMD ["python", "-m", "machine_sensor_data.sensor_agent.agent"]
 #CMD ["sh", "-c", "adk web --host 0.0.0.0 --port ${PORT:-8080}"]
-CMD ["sh", "-c", "env && adk web --host 0.0.0.0 --port $PORT"]
+#CMD ["sh", "-c", "env && adk web --host 0.0.0.0 --port $PORT"]
 #CMD ["python", "-m", "machine_sensor_data.sensor_agent.agent"]
+CMD ["python", "-m", "adk", "web", "--host", "0.0.0.0", "--port", "${PORT}"]
 
 
