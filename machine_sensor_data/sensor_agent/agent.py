@@ -1,10 +1,12 @@
 import os
 
+print(f"Starting agent on PORT={os.getenv('PORT')}")
+
 
 # Set these early so they take effect before anything uses them
-os.environ["GOOGLE_VERTEXAI_PROJECT"] = "apt-advantage-461615-m4"
-os.environ["GOOGLE_VERTEXAI_LOCATION"] = "us-central1"
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\revathi\AppData\Roaming\gcloud\application_default_credentials.json"
+#os.environ["GOOGLE_VERTEXAI_PROJECT"] = "apt-advantage-461615-m4"
+#os.environ["GOOGLE_VERTEXAI_LOCATION"] = "us-central1"
+#os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\revathi\AppData\Roaming\gcloud\application_default_credentials.json"
 
 import certifi
 import pymongo
@@ -23,7 +25,7 @@ from dateutil.parser import parse as parse_date
 
 
 # Load environment variables
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\revathi\AppData\Roaming\gcloud\application_default_credentials.json"
+#os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\revathi\AppData\Roaming\gcloud\application_default_credentials.json"
 PROJECT_ID = "apt-advantage-461615-m4" 
 PROJECT_LOCATION = "us-central1" 
 DATABASE_NAME = "Manufacturing_Sensor"
@@ -149,7 +151,8 @@ from typing import Union, Dict
 
 def upload_image_to_gcs(image_bytes, filename, bucket_name):
     #client = storage.Client()
-    client = storage.Client.from_service_account_json(r"C:\Users\revathi\Downloads\cred.json")
+    #client = storage.Client.from_service_account_json(r"C:\Users\revathi\Downloads\cred.json")
+    client = storage.Client()
     bucket = client.bucket(bucket_name)
     blob = bucket.blob(filename)
     blob.upload_from_string(image_bytes, content_type="image/png")
@@ -386,5 +389,12 @@ Start the conversation by introducing yourself as an Equipment Monitoring Assist
 
 )
 
-if __name__ == "__main__":
-    root_agent.serve("0.0.0.0", 8080)
+from google.adk.agents import BaseAgent
+
+class SensorAgent(BaseAgent):
+    def setup(self):
+        return root_agent
+
+
+#if __name__ == "__main__":
+#    root_agent.serve("0.0.0.0", 8080)
