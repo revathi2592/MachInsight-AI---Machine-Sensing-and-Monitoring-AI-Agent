@@ -26,5 +26,5 @@ ENV PYTHONUNBUFFERED=1
 EXPOSE 8080
 
 # Start the ADK agent
-CMD ["adk", "web", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["python", "-m", "adk", "web", "--host", "0.0.0.0", "--port", "8080"]
 
