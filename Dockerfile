@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-WORKDIR /app
+WORKDIR /app/machine_sensor_data/sensor_agent
 #WORKDIR /app/machine_sensor_data
 
 RUN apt-get update && \
