@@ -12,8 +12,9 @@ RUN apt-get update && \
 # Install the ADK CLI
 RUN curl -sSL https://google.github.io/adk/install.sh -o install.sh && \
     chmod +x install.sh && \
-    ./install.sh && \
+    bash install.sh && \
     rm install.sh
+ 
 
 # Install Python dependencies
 COPY requirements.txt .
