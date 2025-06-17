@@ -10,7 +10,8 @@ https://machinsight-ai-297752632164.us-central1.run.app
 3. When was the last time the machine 1 turned faulty
 4. How many machines have turned faulty in last 2 hours?
 
-   ![Output](Machinsight - AI.png)
+   ![Output](Machinsight%20-%20AI.png)
+
 
 
 # ⚙️ MachInsight AI – Real-Time Machine Sensing & Monitoring AI Agent
