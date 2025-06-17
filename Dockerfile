@@ -15,7 +15,7 @@ COPY . .
 
 # Set working directory to the folder containing agent.py
 #WORKDIR /app/machine_sensor_data/sensor_agent
-WORKDIR /app/machine_sensor_data
+WORKDIR /app/
 
 ENV PYTHONUNBUFFERED=1
 EXPOSE 8080
