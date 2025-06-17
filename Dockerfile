@@ -1,23 +1,29 @@
-# Use official Python image
 FROM python:3.11-slim
 
-# Set working directory
+# Set work directory
 WORKDIR /app
 
-# Copy requirements first to cache Docker layer
-COPY requirements.txt .
+# System dependencies needed for pip + ADK CLI
+RUN apt-get update && apt-get install -y curl unzip && apt-get clean
 
-# Install dependencies
+# Install ADK CLI
+RUN curl -LO https://storage.googleapis.com/vertex-agent-sdk/google-cloud-agent-sdk-cli.zip && \
+    unzip google-cloud-agent-sdk-cli.zip -d /usr/local/bin && \
+    chmod +x /usr/local/bin/adk && \
+    rm google-cloud-agent-sdk-cli.zip
+
+# Copy Python dependencies and install
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of your code
+# Copy the source code
 COPY . .
 
-# Set environment variables (Cloud Run will set .env via settings)
+# Environment settings
 ENV PYTHONUNBUFFERED=1
 
-# Expose port (Cloud Run uses the PORT environment variable)
+# Cloud Run listens on port 8080
 EXPOSE 8080
 
-# Command to run the agent using ADK
+# Start the agent using ADK
 CMD ["adk", "web"]
