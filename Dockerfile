@@ -1,29 +1,26 @@
 FROM python:3.11-slim
 
-# Set work directory
+# Set working directory
 WORKDIR /app
 
-# System dependencies needed for pip + ADK CLI
-RUN apt-get update && apt-get install -y curl unzip && apt-get clean
+# System dependencies needed for pip and wheel
+RUN apt-get update && apt-get install -y gcc curl unzip && apt-get clean
 
-# Install ADK CLI
-RUN curl -LO https://storage.googleapis.com/vertex-agent-sdk/google-cloud-agent-sdk-cli.zip && \
-    unzip google-cloud-agent-sdk-cli.zip -d /usr/local/bin && \
-    chmod +x /usr/local/bin/adk && \
-    rm google-cloud-agent-sdk-cli.zip
-
-# Copy Python dependencies and install
+# Copy and install Python requirements
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
-# Copy the source code
+# Install the ADK CLI from PyPI
+RUN pip install google-cloud-agent-sdk-cli
+
+# Copy the rest of the application code
 COPY . .
 
-# Environment settings
+# Environment setup
 ENV PYTHONUNBUFFERED=1
 
-# Cloud Run listens on port 8080
+# Expose the port Cloud Run expects
 EXPOSE 8080
 
-# Start the agent using ADK
+# Start your agent
 CMD ["adk", "web"]
