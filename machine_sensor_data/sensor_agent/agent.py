@@ -25,7 +25,7 @@ from dateutil.parser import parse as parse_date
 
 
 # Load environment variables
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\revathi\AppData\Roaming\gcloud\application_default_credentials.json"
+#os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\revathi\AppData\Roaming\gcloud\application_default_credentials.json"
 PROJECT_ID = "apt-advantage-461615-m4" 
 PROJECT_LOCATION = "us-central1" 
 DATABASE_NAME = "Manufacturing_Sensor"
