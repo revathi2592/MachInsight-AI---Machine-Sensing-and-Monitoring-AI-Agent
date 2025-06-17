@@ -22,6 +22,8 @@ COPY . .
 WORKDIR /app/machine_sensor_data
 
 ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/app/machine_sensor_data:$PYTHONPATH
+
 EXPOSE 8080
 
 CMD ["adk", "web", "--host", "0.0.0.0", "--port", "8080"]
