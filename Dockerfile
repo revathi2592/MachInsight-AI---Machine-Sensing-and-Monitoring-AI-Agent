@@ -1,6 +1,7 @@
 FROM python:3.11-slim
 
 #WORKDIR /app
+WORKDIR /app/machine_sensor_data
 
 RUN apt-get update && \
     apt-get install -y curl ca-certificates git && \
@@ -13,7 +14,7 @@ RUN pip install --upgrade pip && \
       -r requirements.txt
 #RUN which adk && adk --version
 #RUN adk --version
-WORKDIR /app/machine_sensor_data
+
 
 COPY . .
 
