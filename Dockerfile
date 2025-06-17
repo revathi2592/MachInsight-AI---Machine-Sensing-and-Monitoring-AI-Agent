@@ -17,7 +17,7 @@ COPY . .
 WORKDIR /app/machine_sensor_data/sensor_agent
 
 ENV PYTHONUNBUFFERED=1
-EXPOSE 8080
+#EXPOSE 8080
 
 #CMD ["adk", "web", "--host", "0.0.0.0", "--port", "8080"]
 #CMD ["python", "-m", "machine_sensor_data.sensor_agent.agent"]
