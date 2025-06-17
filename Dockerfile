@@ -3,24 +3,23 @@ FROM python:3.11-slim
 # Set working directory
 WORKDIR /app
 
-# System dependencies needed for pip and wheel
-RUN apt-get update && apt-get install -y gcc curl unzip && apt-get clean
+# Install system dependencies
+RUN apt-get update && apt-get install -y git curl unzip gcc && apt-get clean
 
-# Copy and install Python requirements
+# Install Python dependencies
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
-# Install the ADK CLI from PyPI
-RUN pip install google-cloud-agent-sdk-cli
+# Install Google ADK CLI from GitHub
+RUN git clone https://github.com/GoogleCloudPlatform/vertex-ai-agent-sdk /adk && \
+    pip install /adk/cli
 
-# Copy the rest of the application code
+# Copy project files
 COPY . .
 
-# Environment setup
+# Cloud Run port and env settings
 ENV PYTHONUNBUFFERED=1
-
-# Expose the port Cloud Run expects
 EXPOSE 8080
 
-# Start your agent
+# Start the agent
 CMD ["adk", "web"]
