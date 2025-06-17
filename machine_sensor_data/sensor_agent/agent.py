@@ -148,6 +148,7 @@ from io import BytesIO
 import base64
 from datetime import datetime
 from typing import Union, Dict
+import google.auth
 
 def upload_image_to_gcs(image_bytes, filename, bucket_name):
     #client = storage.Client()
@@ -156,6 +157,8 @@ def upload_image_to_gcs(image_bytes, filename, bucket_name):
     bucket = client.bucket(bucket_name)
     blob = bucket.blob(filename)
     blob.upload_from_string(image_bytes, content_type="image/png")
+    credentials, project = google.auth.default()
+    print(f"Using credentials for =======================: {credentials.service_account_email}")
     #blob.make_public()
 
     url = blob.generate_signed_url(
