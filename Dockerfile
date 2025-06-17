@@ -14,7 +14,7 @@ RUN pip install --upgrade pip && \
 COPY . .
 
 # Set working directory to the folder containing agent.py
-WORKDIR /app/Machine_Sensor_Data/sensor_agent
+WORKDIR /app/machine_sensor_data/sensor_agent
 
 ENV PYTHONUNBUFFERED=1
 EXPOSE 8080
