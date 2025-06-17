@@ -8,10 +8,11 @@ RUN apt-get update && \
 
 COPY requirements.txt .
 RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt && \
-    pip install google-adk
+    pip install --no-cache-dir \
+      google-cloud-aiplatform[agent_engines,adk] \
+      -r requirements.txt
 #RUN which adk && adk --version
-RUN adk --version
+@RUN adk --version
 
 
 COPY . .
