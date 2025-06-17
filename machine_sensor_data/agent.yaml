@@ -1,1 +1,3 @@
+agent:
+  class: sensor_agent.agent.sensor_monitoring_agent  
 
