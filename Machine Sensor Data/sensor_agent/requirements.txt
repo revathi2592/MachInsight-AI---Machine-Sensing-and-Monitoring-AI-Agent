@@ -1,8 +1,0 @@
-pymongo
-vertexai
-google-adk
-word2number
-re
-matplotlib
-pandas
-google-cloud-aiplatform[generation-agent]
