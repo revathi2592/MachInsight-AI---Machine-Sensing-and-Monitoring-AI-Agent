@@ -386,3 +386,5 @@ Start the conversation by introducing yourself as an Equipment Monitoring Assist
 
 )
 
+if __name__ == "__main__":
+    root_agent.serve("0.0.0.0", 8080)
