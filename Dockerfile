@@ -9,16 +9,14 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y curl unzip ca-certificates && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
  
-# Install the ADK CLI
-RUN curl -sSL https://google.github.io/adk/install.sh -o install.sh && \
-    chmod +x install.sh && \
-    bash install.sh && \
-    rm install.sh
+
  
 
-# Install Python dependencies
+# Install Python dependencies including ADK
 COPY requirements.txt .
-RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt && \
+    pip install google-adk
 
 # Copy source code
 COPY . .
