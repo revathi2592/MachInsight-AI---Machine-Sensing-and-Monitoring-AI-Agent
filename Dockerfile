@@ -12,7 +12,7 @@ RUN pip install --upgrade pip && \
       google-cloud-aiplatform[agent_engines,adk] \
       -r requirements.txt
 #RUN which adk && adk --version
-@RUN adk --version
+#RUN adk --version
 
 
 COPY . .
