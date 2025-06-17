@@ -1,30 +1,25 @@
 FROM python:3.11-slim
 
-# Set work directory
+# Set working directory
 WORKDIR /app
 
-
-# Install dependencies
+# Install system dependencies
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y curl unzip ca-certificates && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y curl unzip ca-certificates git && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
- 
 
-
-# Install Python dependencies including ADK
+# Install Python dependencies and ADK CLI
 COPY requirements.txt .
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt && \
-    pip install google-adk 
+    pip install vertexai-agent-sdk
 
-# Copy source code
+# Copy your project code
 COPY . .
 
-# Cloud Run settings
+# Set environment variables
 ENV PYTHONUNBUFFERED=1
 EXPOSE 8080
 
-# Start the ADK agent
-#CMD ["python", "-m", "adk", "web", "--host", "0.0.0.0", "--port", "8080"]
-CMD ["python", "-m", "Machine Sensor Data.sensor_agent.agent"]
-
+# Run the ADK agent UI
+CMD ["adk", "web", "--host", "0.0.0.0", "--port", "8080"]
