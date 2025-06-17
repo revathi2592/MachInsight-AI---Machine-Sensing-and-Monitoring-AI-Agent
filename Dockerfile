@@ -11,6 +11,10 @@ RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt && \
     pip install google-adk
 #RUN which adk && adk --version
+RUN pip show google-adk
+RUN which adk
+RUN adk --help
+
 
 COPY . .
 
