@@ -391,7 +391,7 @@ Start the conversation by introducing yourself as an Equipment Monitoring Assist
 
 from google.adk.agents import BaseAgent
 
-class sensor_agent(BaseAgent):
+class SensorAgent(BaseAgent):
     def setup(self):
         return root_agent
 
