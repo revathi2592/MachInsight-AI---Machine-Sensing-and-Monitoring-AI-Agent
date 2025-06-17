@@ -28,8 +28,8 @@ PROJECT_ID = "apt-advantage-461615-m4"
 PROJECT_LOCATION = "us-central1" 
 DATABASE_NAME = "Manufacturing_Sensor"
 COLLECTION_NAME = "manufacturing-sensor-hourly-snapshot"
-username = quote_plus("*******")
-password = quote_plus("*******")
+username = quote_plus("revathi2592")
+password = quote_plus("Rev@thi2592")
 CONNECTION_STRING  = f"mongodb+srv://{username}:{password}@cluster0.ihjjs0q.mongodb.net/"
 
 # Init Vertex AI
