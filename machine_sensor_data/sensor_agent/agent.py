@@ -153,7 +153,7 @@ import google.auth
 def upload_image_to_gcs(image_bytes, filename, bucket_name):
     #client = storage.Client()
     #client = storage.Client.from_service_account_json(r"C:\Users\revathi\Downloads\cred.json")
-    client = storage.Client()
+    client = storage.Client(project="apt-advantage-461615-m4")
     bucket = client.bucket(bucket_name)
     blob = bucket.blob(filename)
     blob.upload_from_string(image_bytes, content_type="image/png")
