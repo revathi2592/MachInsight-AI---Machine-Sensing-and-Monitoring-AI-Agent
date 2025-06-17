@@ -7,10 +7,8 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y curl unzip && apt-get clean
 
 # Download and install the ADK CLI
-RUN curl -LO https://storage.googleapis.com/vertex-ai-agent-sdk/google-cloud-agent-sdk-cli.zip && \
-    unzip google-cloud-agent-sdk-cli.zip -d /usr/local/bin && \
-    chmod +x /usr/local/bin/adk && \
-    rm google-cloud-agent-sdk-cli.zip
+RUN apt-get update && apt-get install -y curl unzip && \
+    curl -sSL https://google.github.io/adk/install.sh | bash
 
 # Install Python dependencies
 COPY requirements.txt .
