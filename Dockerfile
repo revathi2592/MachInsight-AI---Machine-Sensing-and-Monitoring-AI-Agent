@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-WORKDIR /app/machine_sensor_data/sensor_agent
+WORKDIR /app/machine_sensor_data/
 #WORKDIR /app/machine_sensor_data
 
 RUN apt-get update && \
@@ -23,7 +23,7 @@ COPY . .
 #WORKDIR /app/machine_sensor_data
 
 ENV PYTHONUNBUFFERED=1
-ENV PYTHONPATH=/app/machine_sensor_data/sensor_agent:$PYTHONPATH
+ENV PYTHONPATH=/app/machine_sensor_data/:$PYTHONPATH
 
 EXPOSE 8080
 
