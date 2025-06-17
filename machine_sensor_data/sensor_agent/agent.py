@@ -159,12 +159,14 @@ def upload_image_to_gcs(image_bytes, filename, bucket_name):
     blob.upload_from_string(image_bytes, content_type="image/png")
     credentials, project = google.auth.default()
     print(f"Using credentials for =======================: {credentials.service_account_email}")
+    print("credentials ++++++++++++++++++++++++++++++++++++++++", client._credentials)
     #blob.make_public()
 
     url = blob.generate_signed_url(
     version="v4",
     expiration=timedelta(hours=1),
     method="GET",
+    credentials=client._credentials,
     service_account_email = "cloudrun-gcs-access@apt-advantage-461615-m4.iam.gserviceaccount.com"
     )
  
