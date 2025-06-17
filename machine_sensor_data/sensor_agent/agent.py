@@ -1,5 +1,7 @@
 import os
 
+print(f"Starting agent on PORT={os.getenv('PORT')}")
+
 
 # Set these early so they take effect before anything uses them
 os.environ["GOOGLE_VERTEXAI_PROJECT"] = "apt-advantage-461615-m4"
