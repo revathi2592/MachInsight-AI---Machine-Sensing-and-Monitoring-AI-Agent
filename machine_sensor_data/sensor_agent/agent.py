@@ -159,7 +159,7 @@ def upload_image_to_gcs(image_bytes, filename, bucket_name):
     blob.upload_from_string(image_bytes, content_type="image/png")
     credentials, project = google.auth.default()
     print(f"Using credentials for =======================: {credentials.service_account_email}")
-    blob.make_public()
+    #blob.make_public()
 
     url = blob.generate_signed_url(
     version="v4",
