@@ -10,13 +10,13 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
  
 
- 
 
 # Install Python dependencies including ADK
 COPY requirements.txt .
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt && \
-    pip install google-adk
+    pip install google-adk && \
+    which adk
 
 # Copy source code
 COPY . .
