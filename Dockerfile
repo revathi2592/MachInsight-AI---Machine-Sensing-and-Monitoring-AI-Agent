@@ -10,6 +10,7 @@ COPY requirements.txt .
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt && \
     pip install google-adk
+RUN which adk && adk --version
 
 COPY . .
 
