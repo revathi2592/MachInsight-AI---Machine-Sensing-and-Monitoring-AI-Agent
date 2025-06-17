@@ -23,5 +23,7 @@ EXPOSE 8080
 #CMD ["adk", "web", "--host", "0.0.0.0", "--port", "8080"]
 #CMD ["python", "-m", "machine_sensor_data.sensor_agent.agent"]
 #CMD ["sh", "-c", "adk web --host 0.0.0.0 --port ${PORT:-8080}"]
-CMD ["sh", "-c", "env && adk web --host 0.0.0.0 --port $PORT"]
+#CMD ["sh", "-c", "env && adk web --host 0.0.0.0 --port $PORT"]
+CMD ["python", "-m", "machine_sensor_data.sensor_agent.agent"]
+
 
