@@ -18,6 +18,10 @@ RUN pip install --upgrade pip && \
 
 COPY . .
 
+COPY key.json /app/key.json
+ENV GOOGLE_APPLICATION_CREDENTIALS=/app/key.json
+
+
 # Set working directory to the folder containing agent.py
 #WORKDIR /app/machine_sensor_data/sensor_agent
 #WORKDIR /app/machine_sensor_data
