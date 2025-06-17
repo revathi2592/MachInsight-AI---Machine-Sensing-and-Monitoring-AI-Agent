@@ -3,12 +3,17 @@ FROM python:3.11-slim
 # Set work directory
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y curl unzip && apt-get clean
 
-# Download and install the ADK CLI
-RUN apt-get update && apt-get install -y curl unzip && \
-    curl -sSL https://google.github.io/adk/install.sh | bash
+# Install dependencies
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y curl unzip ca-certificates && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+ 
+# Install the ADK CLI
+RUN curl -sSL https://google.github.io/adk/install.sh -o install.sh && \
+    chmod +x install.sh && \
+    ./install.sh && \
+    rm install.sh
 
 # Install Python dependencies
 COPY requirements.txt .
