@@ -23,7 +23,7 @@ COPY . .
 #WORKDIR /app/machine_sensor_data
 
 ENV PYTHONUNBUFFERED=1
-ENV PYTHONPATH=/app/machine_sensor_data:$PYTHONPATH
+ENV PYTHONPATH=/app/machine_sensor_data/sensor_agent:$PYTHONPATH
 
 EXPOSE 8080
 
