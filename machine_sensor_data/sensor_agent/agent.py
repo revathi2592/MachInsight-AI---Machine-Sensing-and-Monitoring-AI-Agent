@@ -389,5 +389,12 @@ Start the conversation by introducing yourself as an Equipment Monitoring Assist
 
 )
 
+from google.adk.agents import BaseAgent
+
+class sensor_agent(BaseAgent):
+    def setup(self):
+        return root_agent
+
+
 #if __name__ == "__main__":
 #    root_agent.serve("0.0.0.0", 8080)
