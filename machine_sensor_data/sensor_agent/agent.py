@@ -164,7 +164,8 @@ def upload_image_to_gcs(image_bytes, filename, bucket_name):
     url = blob.generate_signed_url(
     version="v4",
     expiration=timedelta(hours=1),
-    method="GET"
+    method="GET",
+    service_account_email = "cloudrun-gcs-access@apt-advantage-461615-m4.iam.gserviceaccount.com"
     )
  
     #return blob.public_url
