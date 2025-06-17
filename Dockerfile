@@ -13,7 +13,7 @@ RUN pip install --upgrade pip && \
       -r requirements.txt
 #RUN which adk && adk --version
 #RUN adk --version
-
+WORKDIR /app/machine_sensor_data
 
 COPY . .
 
