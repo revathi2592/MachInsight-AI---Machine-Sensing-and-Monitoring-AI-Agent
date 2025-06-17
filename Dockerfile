@@ -1,7 +1,7 @@
 FROM python:3.11-slim
 
-#WORKDIR /app
-WORKDIR /app/machine_sensor_data
+WORKDIR /app
+#WORKDIR /app/machine_sensor_data
 
 RUN apt-get update && \
     apt-get install -y curl ca-certificates git && \
@@ -20,7 +20,7 @@ COPY . .
 
 # Set working directory to the folder containing agent.py
 #WORKDIR /app/machine_sensor_data/sensor_agent
-WORKDIR /app/machine_sensor_data
+#WORKDIR /app/machine_sensor_data
 
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/app/machine_sensor_data:$PYTHONPATH
