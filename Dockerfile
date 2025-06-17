@@ -21,6 +21,7 @@ COPY . .
 # Set working directory to the folder containing agent.py
 #WORKDIR /app/machine_sensor_data/sensor_agent
 #WORKDIR /app/machine_sensor_data
+COPY service_account.json /app/service_account.json
 ENV GOOGLE_APPLICATION_CREDENTIALS=/app/service_account.json
 
 ENV PYTHONUNBUFFERED=1
